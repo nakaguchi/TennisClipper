@@ -3,3 +3,5 @@ venv/
 .git/
 *.ts
 *.exe
+movie/
+*.idx2
