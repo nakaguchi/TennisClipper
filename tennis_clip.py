@@ -5,7 +5,7 @@ import ffmpeg
 import numpy as np
 import pandas as pd
 
-play_time_threshold = 5.0  # Minimum play time to consider a segment
+play_time_threshold = 2.5  # Minimum play time to consider a segment
 match_size = (320, 240)  # 一致度算出のサイズ
 
 
@@ -111,8 +111,8 @@ def edit_video(info, segments):
     for i, (start, dulation) in enumerate(segments):
         temp_file = f"temp{i:04}.mp4"
         (
-            ffmpeg.input(in_file, ss=start, t=dulation, r=info["fps"])
-            .output(temp_file, pix_fmt="yuv420p", **{"b:v": "2000k"})
+            ffmpeg.input(info["input"], ss=start, t=dulation, r=info["fps"])
+            .output(temp_file, pix_fmt="yuv420p", **{"b:v": "6000k"})
             .run(overwrite_output=True)
         )
         temp_files.append(temp_file)
