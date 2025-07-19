@@ -60,7 +60,7 @@ def calc_threshold(data):
             var = wB * wF * ((sumB / wB) - mF) ** 2  # Variance
             if var > max_var:
                 max_var = var
-                threshold_list.append(bin[ii])
+                threshold_list = [bin[ii]]
             elif var == max_var:
                 threshold_list.append(bin[ii])
         wB += hist[ii]  # Update background weight
